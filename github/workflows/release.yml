@@ -1,7 +1,7 @@
 name: Build and Release
 
 on:
-  push:
+  push: 
     tags:
       - "1.0.0"
 
