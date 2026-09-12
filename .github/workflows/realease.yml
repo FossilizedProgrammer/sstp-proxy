@@ -50,7 +50,7 @@ jobs:
           GOARCH: ${{ matrix.goarch }}
           CGO_ENABLED: 0
         run: |
-          OUTPUT="standalone-sstp-proxy-client-${{ matrix.goos }}-${{ matrix.goarch }}${{ matrix.extension }}"
+          OUTPUT="sstp-proxy-client-${{ matrix.goos }}-${{ matrix.goarch }}${{ matrix.extension }}"
 
           go build \
             -trimpath \
@@ -59,13 +59,13 @@ jobs:
 
       - name: Package
         run: |
-          BINARY="standalone-sstp-proxy-client-${{ matrix.goos }}-${{ matrix.goarch }}${{ matrix.extension }}"
+          BINARY="sstp-proxy-client-${{ matrix.goos }}-${{ matrix.goarch }}${{ matrix.extension }}"
 
           if [ "${{ matrix.goos }}" = "linux" ]; then
-            ARCHIVE="standalone-sstp-proxy-client-${{ matrix.goos }}-${{ matrix.goarch }}.tar.gz"
+            ARCHIVE="sstp-proxy-client-${{ matrix.goos }}-${{ matrix.goarch }}.tar.gz"
             tar -czf "$ARCHIVE" "$BINARY"
           else
-            ARCHIVE="standalone-sstp-proxy-client-${{ matrix.goos }}-${{ matrix.goarch }}.zip"
+            ARCHIVE="sstp-proxy-client-${{ matrix.goos }}-${{ matrix.goarch }}.zip"
             zip "$ARCHIVE" "$BINARY"
           fi
 
